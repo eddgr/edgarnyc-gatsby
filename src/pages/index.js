@@ -1,21 +1,44 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to='/blog/'>Blog</Link>
-  </Layout>
-)
+const BlogPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulBlogPost {
+        nodes {
+          id
+          title
+          slug
+          heroImage {
+            fluid(maxWidth: 960) {
+              src
+            }
+          }
+        }
+      }
+    }
+  `) 
 
-export default IndexPage
+  const renderItems = () => {
+    const nodes = data.allContentfulBlogPost.nodes;
+    return nodes.map(node => {
+      const { id, title, heroImage, slug } = node;
+      return <div key={id}>
+        <img src={heroImage.fluid.src} alt={title} />
+        <Link to={slug}><h2>{title}</h2></Link>
+      </div>
+    });
+  }
+
+  return <>
+    <SEO
+      title="Blog page"
+      description="test blog description"
+    />
+    {renderItems()}
+  </>
+}
+
+export default BlogPage
