@@ -1,0 +1,43 @@
+$primary: #57a4b0;
+$secondary: #a9bcd0;
+$info: #373f51;
+$dark: #1b1b1e;
+$light: #d8dbe2;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.hero {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article {
+  max-width: 800px;
+  margin: auto;
+  word-wrap: break-word;
+}

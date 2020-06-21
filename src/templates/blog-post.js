@@ -10,9 +10,15 @@ export default function BlogPost({ data }) {
       title={title}
       description={description.description}
     />
-    <img src={heroImage.fluid.src} alt={title} />
-    <h1>{title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
+    <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
+      <h1>{title}</h1>
+    </div>
+    <div className="container mt-4">
+      <div className="article">
+        <img src={heroImage.fluid.src} alt={title} className="w-100" />
+        <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
+      </div>
+    </div>
   </> 
 }
 
@@ -20,7 +26,7 @@ export const query = graphql`
   query($id: String!) {
     contentfulBlogPost(id: {eq: $id}) {
       heroImage {
-        fluid {
+        fluid(maxWidth: 800) {
           src
         }
       }
