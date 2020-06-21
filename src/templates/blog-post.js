@@ -1,15 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 export default function BlogPost({ data }) {
   const { title, body, heroImage, description } = data.contentfulBlogPost;
-  return <>
-    <SEO
-      title={title}
-      description={description.description}
-    />
+  return <Layout title={title} description={description.description}>
     <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
       <h1>{title}</h1>
     </div>
@@ -19,7 +15,7 @@ export default function BlogPost({ data }) {
         <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
       </div>
     </div>
-  </> 
+  </Layout> 
 }
 
 export const query = graphql`

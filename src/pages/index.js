@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import "../assets/css/global.css";
 
@@ -46,11 +46,7 @@ const BlogPage = () => {
     });
   }
 
-  return <>
-    <SEO
-      title="Blog page"
-      description="test blog description"
-    />
+  return <Layout title='home' description='blah blah balh'>
     <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
       Intro here
     </div>
@@ -59,10 +55,7 @@ const BlogPage = () => {
         {renderItems()}
       </div>
     </div>
-    <div id="footer" className="bg-dark text-white p-4 mt-4">
-      Links and stuff here
-    </div>
-  </>
+  </Layout>
 }
 
 export default BlogPage
