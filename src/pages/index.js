@@ -31,12 +31,12 @@ const BlogPage = () => {
     return nodes.map(node => {
       const { id, title, heroImage, slug, description } = node;
       return <div key={id} className="col-sm-4 mb-4">
-        <div className="card">
+        <div className="card border-0">
           <Link to={slug}>
-            <img src={heroImage.fluid.src} alt={title} className="card-img-top" />
+            <img src={heroImage.fluid.src} alt={title} className="card-img-top rounded-lg" />
           </Link>
-            <div className="card-body">
-              <h4 className="card-title">{title}</h4>
+            <div className="card-body p-0">
+              <h4 className="card-title mb-2 mt-2">{title}</h4>
               <div className="card-text">
                 {description.description}
               </div>
@@ -48,7 +48,10 @@ const BlogPage = () => {
 
   return <Layout title='home' description='blah blah balh'>
     <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
-      Intro here
+      <div className="container">
+        <h1>A blog about something for someone</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare.</p>
+      </div>
     </div>
     <div id="content" className="container mt-4">
       <div className="row">

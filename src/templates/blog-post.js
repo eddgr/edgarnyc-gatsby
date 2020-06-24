@@ -4,14 +4,21 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout"
 
 export default function BlogPost({ data }) {
-  const { title, body, heroImage, description } = data.contentfulBlogPost;
-  return <Layout title={title} description={description.description}>
+  const { title, body, heroImage, description, updatedAt, author } = data.contentfulBlogPost;
+  const dateFormat = { year: 'numeric', month: 'long', day: 'numeric' }
+  const parsedDate = new Date(updatedAt).toLocaleDateString([], dateFormat);
+  return <Layout title={title} description={description.description} imgUrl={heroImage.fluid.src} page={true}>
     <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
-      <h1>{title}</h1>
+      <div className="text-center">
+        <h1>{title}</h1>
+        <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
+      </div>
     </div>
-    <div className="container mt-4">
+    <div className="container mb-4 mt-4">
       <div className="article">
-        <img src={heroImage.fluid.src} alt={title} className="w-100" />
+        <div className="mb-4">
+          <img src={heroImage.fluid.src} alt={title} className="w-100 rounded-lg" />
+        </div>
         <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
       </div>
     </div>
@@ -22,7 +29,7 @@ export const query = graphql`
   query($id: String!) {
     contentfulBlogPost(id: {eq: $id}) {
       heroImage {
-        fluid(maxWidth: 800) {
+        fluid(resizingBehavior: FILL, cropFocus: CENTER, maxHeight: 420, maxWidth: 800) {
           src
         }
       }
@@ -34,6 +41,10 @@ export const query = graphql`
       title
       description {
         description
+      }
+      updatedAt
+      author {
+        name
       }
     }
   }

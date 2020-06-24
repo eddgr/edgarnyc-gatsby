@@ -7800,6 +7800,13 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+.card-title {
+  font-size: 1.2rem; }
+
+.card-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.25px; }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -7821,10 +7828,40 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .hero p {
+    line-height: 1.5rem;
+    letter-spacing: 0.5px; }
+    .hero p:last-child {
+      margin-bottom: 0; }
 
 .article {
   max-width: 800px;
   margin: auto;
   word-wrap: break-word; }
+  .article p {
+    margin-bottom: 2rem;
+    line-height: 2rem;
+    letter-spacing: 0.5px; }
+  .article ul {
+    margin-bottom: 2rem; }
+    .article ul li {
+      margin-bottom: 0.5rem; }
+
+#content {
+  min-height: 100vh; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  margin: 1rem;
+  border-radius: 50%;
+  color: #d8dbe2 !important; }
+  .nav a {
+    text-decoration: none;
+    transition: ease 0.2s; }
 
 /*# sourceMappingURL=global.css.map */
