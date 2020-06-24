@@ -45,15 +45,21 @@ const BlogPage = () => {
       </div>
     });
   }
+  
+  const title = 'Life After Coding Bootcamp as a Software Engineer'
+  const description = 'Hi, my name is Edgar Ong. I completed a 15 week coding bootcamp at Flatiron School. In less than a month after graduating, I accepted an offer as a Software Engineer.'
 
-  return <Layout title='home' description='blah blah balh'>
+  return <Layout
+    title={title + ' | Edgar <3 NYC'}
+    description={description + ' Learn how I landed my first developer role.'}>
     <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
       <div className="container">
-        <h1>A blog about something for someone</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare.</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <p>This is where I write about my coding journey and how I landed my first developer role.</p>
       </div>
     </div>
-    <div id="content" className="container mt-4">
+    <div id="content" className="container mt-4 mb-4 pt-4 pb-4">
       <div className="row">
         {renderItems()}
       </div>

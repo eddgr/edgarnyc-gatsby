@@ -14,7 +14,7 @@ export default function BlogPost({ data }) {
         <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
       </div>
     </div>
-    <div className="container mb-4 mt-4">
+    <div className="container mb-4 mt-4 pt-4 pb-4">
       <div className="article">
         <div className="mb-4">
           <img src={heroImage.fluid.src} alt={title} className="w-100 rounded-lg" />
