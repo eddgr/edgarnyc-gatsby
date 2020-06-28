@@ -8,11 +8,6 @@ import { getImgFluid } from "../utils"
 import "../assets/css/global.css";
 
 export default function IndexPage({ data }) {
-  // const filterImgByName = imageName => {
-  //   const filteredImg = data.allFile.nodes.filter(node => node.childImageSharp.fluid.originalName === imageName)[0]
-  //   return filteredImg.childImageSharp.fluid;
-  // }
-
   const renderPosts = () => {
     const nodes = data.allContentfulBlogPost.nodes;
     return nodes.map(node => {
@@ -59,7 +54,7 @@ export default function IndexPage({ data }) {
     <div id="hero" className="hero row text-light p-4 ml-0 mr-0">
       <div className="container row mx-auto align-items-center">
         <div className="col-sm-9">
-          <h1 className="mb-4">Hi, my name is Edgar.</h1>
+          <h1>Hi, my name is Edgar.</h1>
           <p>{description}</p>
           <p>Currently, I'm a Software Engineer at <a href='https://www.superdataresearch.com'>SuperData Research, a Nielsen Company</a> where I build business intelligence tools around video game data.</p>
           <p>This is where I share my projects and write about software development.</p>

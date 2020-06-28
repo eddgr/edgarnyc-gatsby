@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 import Layout from "../components/layout";
-import { getImgFluid, laptopIcon, mobileIcon } from "../utils";
+import { getImgFluid, laptopIcon, mobileIcon, OutboundLinkGA } from "../utils";
 
 export default function Project({ data }) {
   const { name, screenshots, stack, url, mobile, features, description, challenges } = data.projectsJson;
@@ -18,19 +18,24 @@ export default function Project({ data }) {
     })
   }
 
-  return <Layout page={true}>
+  return <Layout title={name} description={description[0]} page={true}>
     {/* Header Section */}
-    <div className="d-flex justify-content-center bg-dark text-light">
+    <div className="hero d-flex justify-content-center text-light">
       <div className="container row align-items-center justify-content-center mt-4 mb-4">
         <div className="col-sm-4">
           <Img fluid={getImgFluid(data, screenshots.main)} alt={name} />
         </div>
         <div className="col-sm-8 mt-4 mb-4">
-          <h1>{name}</h1>
+          <h1 className="text-center text-lg-left">{name}</h1>
 
           {description.map(desc => <p key={desc}>{desc}</p>)}
 
-          <a href={url.demo} target="_blank">
+          <OutboundLinkGA
+            href={url.demo}
+            target="_blank"
+            className="text-decoration-none"
+            eventLabel={`View ${name} Demo`}
+          >
             <button
               aria-label="View Demo"
               className="btn btn-info mx-auto d-block d-lg-inline mt-4">
@@ -41,7 +46,7 @@ export default function Project({ data }) {
               )}{" "}
               View Demo
             </button>
-          </a>
+          </OutboundLinkGA>
         </div>
       </div>
     </div>
@@ -57,25 +62,31 @@ export default function Project({ data }) {
           <ul>
             <li>
               <strong>Frontend:</strong> {stack.frontend} {" "} 
-              <a href={url.frontend} target="_blank">
+              <OutboundLinkGA
+                eventLabel={`View ${name} Frontend Github`}
+                href={url.frontend}
+                target="blank">
                 <span
                   aria-label="View Github"
                   className="text-info"
                 >
                   <small>(View Github)</small>
                 </span>
-              </a>
+              </OutboundLinkGA>
             </li>
             <li>
               <strong>Backend:</strong> {stack.backend} {" "}
-              <a href={url.backend} target="_blank">
+              <OutboundLinkGA
+                eventLabel={`View ${name} Backend Github`}
+                href={url.backend}
+                target="blank">
                 <span
                   aria-label="View Github"
                   className="text-info"
                 >
                   <small>(View Github)</small>
                 </span>
-              </a>
+              </OutboundLinkGA>
             </li>
             <li>
               <strong>Libraries:</strong> {stack.other}
