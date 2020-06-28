@@ -2,10 +2,96 @@ import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import { getImgFluid, laptopIcon, mobileIcon } from "../utils";
 
 export default function Project({ data }) {
+  const { name, screenshots, stack, url, mobile, features, description, challenges } = data.projectsJson;
 
+  const renderFeatures = () => {
+    return features.map((feature, idx) => {
+      return <div className="col-sm-6 text-center mb-4"
+        key={feature}>
+        <Img fluid={getImgFluid(data, screenshots.features[idx])} alt={name} />
+        <p>{feature}</p>
+      </div>
+    })
+  }
+
+  return <Layout page={true}>
+    {/* Header Section */}
+    <div className="d-flex justify-content-center bg-dark text-light">
+      <div className="container row align-items-center justify-content-center mt-4 mb-4">
+        <div className="col-sm-4">
+          <Img fluid={getImgFluid(data, screenshots.main)} alt={name} />
+        </div>
+        <div className="col-sm-8 mt-4 mb-4">
+          <h1>{name}</h1>
+
+          {description.map(desc => <p key={desc}>{desc}</p>)}
+
+          <a href={url.demo} target="_blank">
+            <button
+              aria-label="View Demo"
+              className="btn btn-info mx-auto d-block d-lg-inline mt-4">
+              {mobile ? (
+                mobileIcon
+              ) : (
+                laptopIcon
+              )}{" "}
+              View Demo
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+   {/* Main Content */} 
+    <div className="container mt-4">
+      <h2 className="mb-4 text-center">Screenshots</h2>
+      <div className="row mb-4 bg-primary">
+        {renderFeatures()}
+      </div>
+      <div className="row">
+        <div className="col-sm-6">
+          <h3>Stack</h3>
+          <ul>
+            <li>
+              <strong>Frontend:</strong> {stack.frontend} {" "} 
+              <a href={url.frontend} target="_blank">
+                <span
+                  aria-label="View Github"
+                  className="text-info"
+                >
+                  <small>(View Github)</small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <strong>Backend:</strong> {stack.backend} {" "}
+              <a href={url.backend} target="_blank">
+                <span
+                  aria-label="View Github"
+                  className="text-info"
+                >
+                  <small>(View Github)</small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <strong>Libraries:</strong> {stack.other}
+            </li>
+          </ul>
+        </div>
+        <div className="col-sm-6">
+          <h3>Challenges</h3>
+          <ul>
+            {challenges.map(challenge => <li key={challenge}>{challenge}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </Layout>
 }
 
 export const query = graphql`
@@ -31,6 +117,19 @@ export const query = graphql`
       features
       description
       challenges
+    }
+    allFile(filter: {sourceInstanceName: {eq: "images"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            src
+            sizes
+            srcSet
+            originalName
+          }
+        }
+      }
     }
   }
 `

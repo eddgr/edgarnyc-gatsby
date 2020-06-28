@@ -3,20 +3,21 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import { getImgFluid } from "../utils"
 
 import "../assets/css/global.css";
 
 export default function IndexPage({ data }) {
-  const filterImgByName = imageName => {
-    const filteredImg = data.allFile.nodes.filter(node => node.childImageSharp.fluid.originalName === imageName)[0]
-    return filteredImg.childImageSharp.fluid;
-  }
+  // const filterImgByName = imageName => {
+  //   const filteredImg = data.allFile.nodes.filter(node => node.childImageSharp.fluid.originalName === imageName)[0]
+  //   return filteredImg.childImageSharp.fluid;
+  // }
 
-  const renderItems = () => {
+  const renderPosts = () => {
     const nodes = data.allContentfulBlogPost.nodes;
     return nodes.map(node => {
       const { id, title, heroImage, slug, description } = node;
-      return <div key={id} className="col-sm-4 mb-4">
+      return <div key={id} className="col-sm-4 p-4">
         <div className="card border-0">
           <Link to={slug}>
             <Img fluid={heroImage.fluid} alt={title} className="card-img-top rounded-lg" />
@@ -36,10 +37,12 @@ export default function IndexPage({ data }) {
     const nodes = data.allProjectsJson.nodes;
     return nodes.map(project => {
       const { name, slug, screenshots } = project;
-      return <div key={slug} className="col-sm-6">
+      return <div key={slug} className="col-sm-6 p-4 text-center">
         <Link to={project.slug}>
-          <Img fluid={filterImgByName(screenshots.main)} alt={name} />
-          {name}
+          <div className="project-card bg-primary">
+            <h2>{name}</h2>
+            <Img fluid={getImgFluid(data, screenshots.main)} alt={name} className="w-100" />
+          </div>
         </Link>
       </div>
     })
@@ -48,7 +51,7 @@ export default function IndexPage({ data }) {
   const title = 'Life After Coding Bootcamp as a Software Engineer'
   const description = "I'm a NYC based Full Stack Web Developer with experience in Ruby, JavaScript, and Python frameworks."
 
-  const profileImage = filterImgByName("edgar-ong.jpg"); 
+  const profileImage = getImgFluid(data, "edgar-ong.jpg"); 
 
   return <Layout
     title={title + ' | Edgar <3 NYC'}
@@ -85,7 +88,7 @@ export default function IndexPage({ data }) {
       <div>
         <h2 className="text-center mb-4">Blog</h2>
         <div className="row">
-          {renderItems()}
+          {renderPosts()}
         </div>
       </div>
     </div>
