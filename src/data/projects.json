@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Fooder",
+    "slug": "fooder",
+    "screenshots": {
+      "main": "fooder.png",
+      "features": ["fooder-features-001.png", "fooder-features-002.png"]
+    },
+    "description": [
+      "Fooder is mobile friendly and allows users to connect with others who are interested in restaurants they want to go to.",
+      "Restaurants have chat threads for users who liked the venue and to coordinate plans to go together."
+    ],
+    "features": ["Explore and Search", "Chat and Profile"],
+    "stack": {
+      "frontend": "React JS",
+      "backend": "Ruby on Rails",
+      "other": "Redux, Action Cable, Foursquare API, Bootstrap"
+    },
+    "challenges": [
+      "Styling the app to look like a mobile app.",
+      "Giving enough time for reducer states to load before loading components."
+    ],
+    "url": {
+      "frontend": "https://github.com/eddgr/fooder-frontend",
+      "backend": "https://github.com/eddgr/fooder-backend",
+      "demo": "https://fooder-app-frontend.herokuapp.com/"
+    },
+    "mobile": true
+  },
+  {
+    "name": "Zombie Diner",
+    "slug": "zombie-diner",
+    "screenshots": {
+      "main": "zombie-diner.png",
+      "features": ["zombie-diner-features-001.png", "zombie-diner-features-002.png"]
+    },
+    "description": [
+      "Zombies are hungry, clear all the food orders by adding the right ingredients to the plate before serving them. Can you clear all the orders before the time runs out?",
+      "Zombie Diner was inspired by Overcooked and was built in two days for Flatiron School's 2019 Gam Jam and won 'Funniest Game'."
+    ],
+    "features": [
+      "Clear your Orders before the time runs out",
+      "Tap on an Order to see Ingredients needed"
+    ],
+    "stack": {
+      "frontend": "React JS",
+      "backend": "Ruby on Rails",
+      "other": "Redux, Bootstrap"
+    },
+    "challenges": [
+      "We had two days to build a working product. We made the game intentionally difficult because we didn't have time to build a win screen.",
+      "Orders and Ingredients were generated from the backend and randomized. We needed to make sure the Ingredient objects that were created work with the Orders. This is because multiple new Ingredient objects are created."
+    ],
+    "url": {
+      "frontend": "https://github.com/eddgr/zombie-diner-front-end",
+      "backend": "https://github.com/eddgr/zombie-diner-backend",
+      "demo": "https://zombie-diner.herokuapp.com/"
+    },
+    "mobile": true
+  },
+  {
+    "name": "RPS Hero",
+    "slug": "rps-hero",
+    "screenshots": {
+      "main": "rps-hero.png",
+      "features": ["rps-hero-features-001.png", "rps-hero-features-002.png"]
+    },
+    "description": [
+      "RPS Hero is a single player dungeon crawler using Rock, Paper, Scissors for the battle system."
+    ],
+    "features": ["Attack Buffs", "Defend Buffs"],
+    "stack": {
+      "frontend": "JavaScript and HTML",
+      "backend": "Ruby on Rails",
+      "other": "NES CSS"
+    },
+    "challenges": [
+      "Game logic is difficult.",
+      "Styling the game using a grid system for better user experience."
+    ],
+    "url": {
+      "frontend": "https://github.com/eddgr/rps-hero",
+      "backend": "https://github.com/eddgr/rps-hero-backend",
+      "demo": "https://eddgr.github.io/rps-hero"
+    },
+    "mobile": false
+  },
+  {
+    "name": "Not Instagram",
+    "slug": "not-instagram",
+    "screenshots": {
+      "main": "not-instagram.png",
+      "features": ["not-instagram-features-001.png", "not-instagram-features-002.png"]
+    },
+    "description": [
+      "Not Instagram allows users to create posts by uploading photos (jpg, jpeg, png, and gif) with captions. Users can comment on and like posts, and can message other users."
+    ],
+    "features": ["Profile and Update Post", "Follow Feed and Post Comment"],
+    "stack": {
+      "frontend": "Ruby on Rails",
+      "backend": "Ruby on Rails",
+      "other": "ActiveStorage, AWS S3, Bootstrap"
+    },
+    "challenges": [
+      "The project required that no JavaScript was used so certain functions could not be optimistically rendered. Such as liking/unliking a post."
+    ],
+    "url": {
+      "frontend": "https://github.com/eddgr/not-instagram-app",
+      "backend": "https://github.com/eddgr/not-instagram-app",
+      "demo": "https://not-instagram-app.herokuapp.com/"
+    },
+    "mobile": true
+  }
+]

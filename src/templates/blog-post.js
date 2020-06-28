@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
 
 import Layout from "../components/layout"
 
@@ -8,7 +9,7 @@ export default function BlogPost({ data }) {
   const dateFormat = { year: 'numeric', month: 'long', day: 'numeric' }
   const parsedDate = new Date(updatedAt).toLocaleDateString([], dateFormat);
   return <Layout title={title} description={description.description} imgUrl={heroImage.fluid.src} page={true}>
-    <div id="hero" className="hero row bg-dark text-light p-4 ml-0 mr-0">
+    <div id="hero" className="hero row text-light p-4 ml-0 mr-0">
       <div className="text-center">
         <h1>{title}</h1>
         <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
@@ -17,7 +18,7 @@ export default function BlogPost({ data }) {
     <div className="container mb-4 mt-4 pt-4 pb-4">
       <div className="article">
         <div className="mb-4">
-          <img src={heroImage.fluid.src} alt={title} className="w-100 rounded-lg" />
+          <Img fluid={heroImage.fluid} alt={title} className="w-100 rounded-lg" />
         </div>
         <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
       </div>
@@ -31,6 +32,9 @@ export const query = graphql`
       heroImage {
         fluid(resizingBehavior: FILL, cropFocus: CENTER, maxHeight: 420, maxWidth: 800) {
           src
+          srcSet
+          sizes
+          aspectRatio
         }
       }
       body {

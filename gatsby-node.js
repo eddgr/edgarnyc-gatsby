@@ -9,14 +9,20 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-     allContentfulBlogPost {
+      allContentfulBlogPost {
         nodes {
           id
           slug
         }
       }
+      allProjectsJson {
+        nodes {
+          slug
+        }
+      }
     }
   `)
+
   data.allContentfulBlogPost.nodes.forEach(node => {
     const { id, slug } = node;
     actions.createPage({
@@ -25,6 +31,16 @@ exports.createPages = async function ({ actions, graphql }) {
       context: {
         slug: slug,
         id: id
+      },
+    })
+  })
+
+  data.allProjectsJson.nodes.forEach(project => {
+    actions.createPage({
+      path: project.slug,
+      component: require.resolve(`./src/templates/project.js`),
+      context: {
+        slug: project.slug,
       },
     })
   })
