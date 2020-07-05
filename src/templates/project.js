@@ -35,9 +35,9 @@ export default function Project({ data }) {
             target="_blank"
             className="text-decoration-none"
             eventLabel={`View ${name} Demo`}
+            ariaLabel={`View ${name} Demo`}
           >
             <button
-              aria-label="View Demo"
               className="btn btn-info mx-auto d-block d-lg-inline mt-4">
               {mobile ? (
                 mobileIcon
@@ -53,7 +53,7 @@ export default function Project({ data }) {
    {/* Main Content */} 
     <div className="container mt-4">
       <h2 className="mb-4 text-center">Screenshots</h2>
-      <div className="row mb-4 bg-primary">
+      <div id="features" className="row mb-4 bg-primary">
         {renderFeatures()}
       </div>
       <div className="row">

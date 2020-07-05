@@ -3,6 +3,7 @@ $secondary: #a9bcd0;
 $info: #373f51;
 $dark: #1b1b1e;
 $light: #d8dbe2;
+$code: #e83e8c;
 
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 @import 'bootstrap';
@@ -20,6 +21,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  color: darken($code, 10%);
+  background-color: lighten($light, 10%);
+  padding: 0.25rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,6 +35,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
 }
 
+.small {
+  font-size: 0.8rem;
+}
+
+// Layout
 .hero {
   background-color: $dark;
   min-height: 40vh;
@@ -42,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   p {
     line-height: 1.5rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.25px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -56,13 +65,17 @@ h1, h2, h3, h4, h5, h6 {
   p {
     margin-bottom: 2rem;
     line-height: 2rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.25px;
   }
   ul {
     margin-bottom: 2rem;
     li {
       margin-bottom: 0.5rem;
     }
+  }
+  a {
+    color: darken($primary, 15%);
+    font-weight: bold;
   }
 }
 
@@ -78,10 +91,6 @@ h1, h2, h3, h4, h5, h6 {
       margin-bottom: 0;
     }
   }
-}
-
-.small {
-  font-size: 0.8rem;
 }
 
 #content {
@@ -120,5 +129,11 @@ h1, h2, h3, h4, h5, h6 {
   &:hover {
     opacity: 0.9;
     z-index: 99;
+  }
+}
+
+#features {
+  p {
+    color: lighten($dark, 5%);
   }
 }

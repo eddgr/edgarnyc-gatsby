@@ -29,6 +29,7 @@ export default function Layout(props) {
     const socialKeys = Object.keys(social);
     return socialKeys.map(key => {
       return <OutboundLinkGA
+        ariaLabel={social[key].label}
         href={social[key].url}
         target="_blank"
         className="ml-1 mr-1"
@@ -48,7 +49,7 @@ export default function Layout(props) {
     />
 
     { page &&
-      <Link to={'/'} className="nav bg-info">
+      <Link to={'/'} aria-label="Go To Homepage" className="nav bg-info">
         {homeIcon}
       </Link>
     }
