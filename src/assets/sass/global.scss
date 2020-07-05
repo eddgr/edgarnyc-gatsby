@@ -66,6 +66,24 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.related-posts {
+  @extend .article;
+  h4 {
+    font-size: 1.3rem;
+  }
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
 #content {
   min-height: 100vh;
 }
