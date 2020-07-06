@@ -32,7 +32,6 @@ export default function Project({ data }) {
 
           <OutboundLinkGA
             href={url.demo}
-            target="_blank"
             className="text-decoration-none"
             eventLabel={`View ${name} Demo`}
             ariaLabel={`View ${name} Demo`}
@@ -51,9 +50,9 @@ export default function Project({ data }) {
       </div>
     </div>
    {/* Main Content */} 
-    <div className="container mt-4">
+    <div className="container mt-4 p-4">
       <h2 className="mb-4 text-center">Screenshots</h2>
-      <div id="features" className="row mb-4 bg-primary">
+      <div id="features" className="row mb-4 bg-primary rounded-lg">
         {renderFeatures()}
       </div>
       <div className="row">
@@ -64,12 +63,10 @@ export default function Project({ data }) {
               <strong>Frontend:</strong> {stack.frontend} {" "} 
               <OutboundLinkGA
                 eventLabel={`View ${name} Frontend Github`}
+                ariaLabel={`View ${name} Frontend Github`}
                 href={url.frontend}
-                target="blank">
-                <span
-                  aria-label="View Github"
-                  className="text-info"
-                >
+              >
+                <span className="text-info">
                   <small>(View Github)</small>
                 </span>
               </OutboundLinkGA>
@@ -78,12 +75,10 @@ export default function Project({ data }) {
               <strong>Backend:</strong> {stack.backend} {" "}
               <OutboundLinkGA
                 eventLabel={`View ${name} Backend Github`}
+                ariaLabel={`View ${name} Backend Github`}
                 href={url.backend}
-                target="blank">
-                <span
-                  aria-label="View Github"
-                  className="text-info"
-                >
+              >
+                <span className="text-info">
                   <small>(View Github)</small>
                 </span>
               </OutboundLinkGA>

@@ -7904,4 +7904,9 @@ h1, h2, h3, h4, h5, h6 {
 #features p {
   color: #27272b; }
 
+#social a:first-child {
+  margin-left: 0 !important; }
+#social a:last-child {
+  margin-right: 0 !important; }
+
 /*# sourceMappingURL=global.css.map */

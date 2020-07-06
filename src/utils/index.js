@@ -5,13 +5,13 @@ import { includes, orderBy } from 'lodash'
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 export const OutboundLinkGA = props => {
-  const { ariaLabel, eventLabel, href, target, children, className } = props;
+  const { ariaLabel, eventLabel, href, children, className } = props;
   return <OutboundLink
     aria-label={ariaLabel}
     href={href}
     eventLabel={eventLabel}
-    target={target}
-    rel='noopener noreferrer'
+    rel="noopener noreferrer"
+    target="_blank"
     className={className}>
     {children}
   </OutboundLink>

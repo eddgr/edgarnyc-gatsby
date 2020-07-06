@@ -31,8 +31,7 @@ export default function Layout(props) {
       return <OutboundLinkGA
         ariaLabel={social[key].label}
         href={social[key].url}
-        target="_blank"
-        className="ml-1 mr-1"
+        className="ml-2 mr-2"
         key={key}
         eventLabel={`Click ${social[key].label}`}
       >
@@ -61,7 +60,7 @@ export default function Layout(props) {
         <div>
           <strong>Edgar ❤ NYC</strong>
         </div>
-        <div>
+        <div id="social">
           {renderSocial()}
         </div>
       </div>

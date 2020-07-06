@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import { getImgFluid } from "../utils"
+import { getImgFluid, OutboundLinkGA } from "../utils"
 
 import "../assets/css/global.css";
 
@@ -34,7 +34,7 @@ export default function IndexPage({ data }) {
       const { name, slug, screenshots } = project;
       return <div key={slug} className="col-sm-6 p-4 text-center">
         <Link to={project.slug}>
-          <div className="project-card bg-primary">
+          <div className="project-card bg-primary rounded-lg">
             <h2>{name}</h2>
             <Img fluid={getImgFluid(data, screenshots.main)} alt={name} className="w-100" />
           </div>
@@ -48,6 +48,15 @@ export default function IndexPage({ data }) {
 
   const profileImage = getImgFluid(data, "edgar-ong.jpg"); 
 
+  const company = (
+    <OutboundLinkGA
+      href="https://www.superdataresearch.com"
+      eventLabel="SuperData"
+    >
+      SuperData Research, a Nielsen Company
+    </OutboundLinkGA>
+  )
+
   return <Layout
     title={title + ' | Edgar <3 NYC'}
     description={description + ' Learn how I landed my first developer role.'}>
@@ -56,7 +65,7 @@ export default function IndexPage({ data }) {
         <div className="col-sm-9">
           <h1>Hi, my name is Edgar.</h1>
           <p>{description}</p>
-          <p>Currently, I'm a Software Engineer at <a href='https://www.superdataresearch.com'>SuperData Research, a Nielsen Company</a> where I build business intelligence tools around video game data.</p>
+          <p>Currently, I'm a Software Engineer at {company} where I build business intelligence tools around video game data.</p>
           <p>This is where I share my projects and write about software development.</p>
         </div>
         <div className="col-sm-3 mt-4 mb-4">
@@ -64,23 +73,28 @@ export default function IndexPage({ data }) {
             <Img fluid={profileImage} imgStyle={{'borderRadius': '50%'}} />
           </div>
           <div className="text-center">
-              <button className="btn btn-info"
-                aria-label="View Resume">
-                Learn More 
+            <OutboundLinkGA
+              href={'https://bit.ly/edgar-resume'}
+              eventLabel="View Resume"
+              ariaLabel="View Resume"
+            >
+              <button className="btn btn-info">
+                View Resume
               </button>
+            </OutboundLinkGA>
           </div>
     
         </div>
       </div>
     </div>
     <div id="content" className="container mt-4 mb-4 pt-4 pb-4">
-      <div className="mb-4">
+      <div id="projects" className="mb-4">
         <h2 className="text-center mb-4">Projects</h2>
         <div className="row">
           {renderProjects()}
         </div>
       </div>
-      <div>
+      <div id="blog">
         <h2 className="text-center mb-4">Blog</h2>
         <div className="row">
           {renderPosts()}
