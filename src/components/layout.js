@@ -2,43 +2,11 @@ import React from "react";
 import { Link } from "gatsby";
 
 import SEO from "./seo";
-import { homeIcon, githubIcon, twitterIcon, linkedinIcon, OutboundLinkGA } from "../utils";
+import { homeIcon } from "../utils";
+import { renderSocial } from "../utils/social";
 
 export default function Layout(props) {
   const { title, description, page, imgUrl } = props;
-
-  const social = {
-    'github': {
-      'icon': githubIcon,
-      'url': 'https://github.com/eddgr',
-      'label': 'Github'
-    },
-    'twitter': {
-      'icon': twitterIcon,
-      'url': 'https://twitter.com/eddgr',
-      'label': 'Twitter'
-    },
-    'linkedin': {
-      'icon': linkedinIcon,
-      'url': 'https://linkedin.com/eddgr',
-      'label': 'LinkedIn'
-    }
-  }
-
-  const renderSocial = () => {
-    const socialKeys = Object.keys(social);
-    return socialKeys.map(key => {
-      return <OutboundLinkGA
-        ariaLabel={social[key].label}
-        href={social[key].url}
-        className="ml-2 mr-2"
-        key={key}
-        eventLabel={`Click ${social[key].label}`}
-      >
-        {social[key].icon}
-      </OutboundLinkGA>
-    })
-  }
 
   return <>
     <SEO
@@ -47,7 +15,8 @@ export default function Layout(props) {
       imgUrl={imgUrl}
     />
 
-    { page &&
+    {
+      page &&
       <Link to={'/'} aria-label="Go To Homepage" className="nav bg-info">
         {homeIcon}
       </Link>

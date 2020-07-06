@@ -20,7 +20,7 @@ export default function Project({ data }) {
 
   return <Layout title={name} description={description[0]} page={true}>
     {/* Header Section */}
-    <div className="hero d-flex justify-content-center text-light">
+    <div id="hero" className="hero d-flex justify-content-center text-light">
       <div className="container row align-items-center justify-content-center mt-4 mb-4">
         <div className="col-sm-4">
           <Img fluid={getImgFluid(data, screenshots.main)} alt={name} />
@@ -50,7 +50,7 @@ export default function Project({ data }) {
       </div>
     </div>
    {/* Main Content */} 
-    <div className="container mt-4 p-4">
+    <div id="content" className="container mt-4 p-4">
       <h2 className="mb-4 text-center">Screenshots</h2>
       <div id="features" className="row mb-4 bg-primary rounded-lg">
         {renderFeatures()}
@@ -96,7 +96,6 @@ export default function Project({ data }) {
         </div>
       </div>
     </div>
-
   </Layout>
 }
 
