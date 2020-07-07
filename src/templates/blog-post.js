@@ -19,6 +19,10 @@ export default function BlogPost({ data }) {
     .getArticles()
 
   const renderSimilarArticles = () => {
+    if (similarArticles.length === 0) {
+      return;
+    }
+
     const listArticles = similarArticles.map(article => {
       const { title, description, slug } = article.article;
       return (

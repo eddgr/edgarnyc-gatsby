@@ -7868,9 +7868,6 @@ h1, h2, h3, h4, h5, h6 {
   .related-posts p:last-child {
     margin-bottom: 0; }
 
-#content {
-  min-height: 100vh; }
-
 .nav {
   display: flex;
   align-items: center;
