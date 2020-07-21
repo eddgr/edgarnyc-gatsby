@@ -42,9 +42,8 @@ export default function IndexPage({ data }) {
       </div>
     })
   }
-  
-  const title = 'Life After Coding Bootcamp as a Software Engineer'
-  const description = "I'm a NYC based Full Stack Web Developer with experience in Ruby, JavaScript, and Python frameworks."
+
+  const { description, title } = data.site.siteMetadata;
 
   const profileImage = getImgFluid(data, "edgar-ong.jpg"); 
 
@@ -58,8 +57,8 @@ export default function IndexPage({ data }) {
   )
 
   return <Layout
-    title={title + ' | Edgar <3 NYC'}
-    description={description + ' Learn how I landed my first developer role.'}>
+    title={title}
+    description={description}>
     <div id="hero" className="hero row text-light p-4 ml-0 mr-0">
       <div className="container row mx-auto align-items-center">
         <div className="col-sm-9">
@@ -144,6 +143,12 @@ export const data = graphql`
         screenshots {
           main
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
       }
     }
   }
