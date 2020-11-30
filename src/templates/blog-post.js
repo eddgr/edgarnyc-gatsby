@@ -41,17 +41,16 @@ export default function BlogPost({ data }) {
   }
 
   return <Layout title={title} description={description.description} imgUrl={heroImage.fluid.src} page={true}>
-    <div id="hero" className="hero row text-light p-4 ml-0 mr-0">
-      <div className="text-center">
-        <h1>{title}</h1>
-        <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
-      </div>
-    </div>
-    <div id="content" className="container mb-4 mt-4 pt-4 pb-4">
-      <div id="article-body" className="article">
-        <div className="mb-4">
-          <Img fluid={heroImage.fluid} alt={title} className="w-100 rounded-lg" />
+    <div id="content" className="container article">
+      <div id="article-header" class="mt-4">
+        <Img fluid={heroImage.fluid} alt={title} className="w-100 rounded-lg" />
+        <div className="text-center mt-4 mb-4">
+          <h1 class="mb-1">{title}</h1>
+          <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
         </div>
+        <hr />
+      </div>
+      <div id="article-body" class="mt-4">
         <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
       </div>
       {renderSimilarArticles()}
