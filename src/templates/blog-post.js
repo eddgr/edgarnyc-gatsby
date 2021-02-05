@@ -35,7 +35,7 @@ export default function BlogPost({ data }) {
 
     return <div id="related-posts" className="related-posts">
       <hr />
-      <h3 className="mb-4 mt-4">Recommended Reading</h3>
+      <div className="mb-4 mt-4 recommended">Recommended Reading</div>
       {listArticles}
     </div>
   }

@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 .related-posts {
   @extend .article;
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   p {
     margin-bottom: 1.5rem;
@@ -147,4 +147,9 @@ h1, h2, h3, h4, h5, h6 {
       margin-right: 0 !important;
     }
   }
+}
+
+.recommended {
+  font-family: 'Futura', sans-serif;
+  font-weight: bold;
 }

@@ -7809,7 +7809,13 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media (max-width: 1024px) {
   h1 {
-    font-size: 2rem; } }
+    font-size: 2rem; }
+
+  h2 {
+    font-size: 1.5rem; }
+
+  h3, h4 {
+    font-size: 1.2rem; } }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -7866,7 +7872,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold; }
 
 .related-posts h4 {
-  font-size: 1.3rem; }
+  font-size: 1.2rem; }
 .related-posts p {
   margin-bottom: 1.5rem;
   line-height: 1.5rem; }
@@ -7911,5 +7917,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 0 !important; }
 #social a:last-child {
   margin-right: 0 !important; }
+
+.recommended {
+  font-family: 'Futura', sans-serif;
+  font-weight: bold; }
 
 /*# sourceMappingURL=global.css.map */
