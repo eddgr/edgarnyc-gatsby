@@ -33,11 +33,15 @@ export default function BlogPost({ data }) {
       )
     });
 
-    return <div id="related-posts" className="related-posts">
-      <hr />
-      <div className="mb-4 mt-4 recommended">Recommended Reading</div>
-      {listArticles}
-    </div>
+    return (
+      <div id="related-posts" className="related-posts">
+        <hr />
+        <div className="mb-4 mt-4 feature-font">
+          <strong>Recommended Reading</strong>
+        </div>
+        {listArticles}
+      </div>
+    )
   }
 
   return <Layout title={title} description={description.description} imgUrl={heroImage.fluid.src} page={true}>

@@ -38,14 +38,19 @@ export default function IndexPage({ data }) {
     const nodes = data.allProjectsJson.nodes;
     return nodes.map(project => {
       const { name, slug, screenshots } = project;
-      return <div key={slug} className="col-sm-6 p-4 text-center">
-        <Link to={project.slug}>
-          <div className="project-card bg-primary rounded-lg">
-            <h2>{name}</h2>
-            <Img fluid={getImgFluid(data, screenshots.main)} alt={name} className="w-100" />
-          </div>
-        </Link>
-      </div>
+      return (
+        <div key={slug} className="col-sm-6 p-4 text-center">
+          <Link to={project.slug}>
+            <div id={name} className="project-card bg-primary rounded-lg">
+              <Img
+                fluid={getImgFluid(data, screenshots.main)}
+                alt={`Screenshot of ${name}`}
+                className="w-100"
+              />
+            </div>
+          </Link>
+        </div>
+      )
     })
   }
 

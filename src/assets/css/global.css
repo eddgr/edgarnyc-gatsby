@@ -7918,8 +7918,9 @@ h1, h2, h3, h4, h5, h6 {
 #social a:last-child {
   margin-right: 0 !important; }
 
-.recommended {
-  font-family: 'Futura', sans-serif;
-  font-weight: bold; }
+.feature-font {
+  font-family: 'Futura', sans-serif; }
+  .feature-font strong {
+    font-family: inherit; }
 
 /*# sourceMappingURL=global.css.map */

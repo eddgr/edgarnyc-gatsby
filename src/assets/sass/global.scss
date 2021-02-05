@@ -11,6 +11,10 @@ $code: #e83e8c;
   align-items: center;
 }
 
+@mixin feature-font {
+  font-family: 'Futura', sans-serif;
+}
+
 // Mixins and variables go before imports
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 @import 'bootstrap';
@@ -31,7 +35,7 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Futura', sans-serif;
+  @include feature-font;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -1px;
@@ -149,7 +153,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.recommended {
-  font-family: 'Futura', sans-serif;
-  font-weight: bold;
+.feature-font {
+  @include feature-font;
+  strong {
+    font-family: inherit;
+  }
 }
