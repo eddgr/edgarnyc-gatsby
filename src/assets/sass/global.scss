@@ -5,14 +5,18 @@ $dark: #1b1b1e;
 $light: #d8dbe2;
 $code: #e83e8c;
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixins and variables go before imports
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 @import 'bootstrap';
+@import 'media';
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: lighten($info, 5%);
@@ -27,13 +31,17 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Futura', sans-serif;
   font-weight: 700;
   margin-bottom: 1rem;
+  letter-spacing: -1px;
+  a {
+    font-family: inherit;
+  }
 }
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .small {
@@ -42,11 +50,9 @@ h1, h2, h3, h4, h5, h6 {
 
 // Layout
 .hero {
+  @include flex-center;
   background-color: $dark;
   min-height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   h1 {
     margin-bottom: 1.5rem;
   }
@@ -95,17 +101,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
+  background-color: $primary;
   width: 3rem;
   height: 3rem;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 1;
-  margin: 1rem;
   border-radius: 50%;
-  color: $light !important;
+  color: #fff !important;
   a {
     text-decoration: none;
     transition: ease 0.2s;
@@ -113,9 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   padding: 1rem;
   transition: ease 0.2s;
   h2 {

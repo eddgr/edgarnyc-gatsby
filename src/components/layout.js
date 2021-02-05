@@ -17,21 +17,19 @@ export default function Layout(props) {
 
     {
       page &&
-      <Link to={'/'} aria-label="Go To Homepage" className="nav bg-info">
+      <Link to={'/'} aria-label="Go To Homepage" className="nav mt-4 ml-3">
         {homeIcon}
       </Link>
     }
 
     {props.children}
 
-    <div id="footer" className="bg-dark text-light p-4 mt-4">
-      <div className="d-flex align-items-center justify-content-between">
-        <div>
-          <strong>Edgar ❤ NYC</strong>
-        </div>
-        <div id="social">
-          {renderSocial()}
-        </div>
+    <div id="footer" className="bg-dark text-light p-4 mt-4 d-flex align-items-center justify-content-between">
+      <div>
+        <strong>Edgar ❤ NYC</strong>
+      </div>
+      <div id="social">
+        {renderSocial()}
       </div>
     </div>
   </>

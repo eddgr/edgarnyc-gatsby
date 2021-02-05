@@ -27,7 +27,7 @@ export default function BlogPost({ data }) {
       const { title, description, slug } = article.article;
       return (
         <React.Fragment key={title}>
-          <Link to={`/${slug}`}><h4>{title}</h4></Link>
+          <Link to={`/${slug}`}><h4 className="mb-2">{title}</h4></Link>
           <p className="small">{description.description}</p>
         </React.Fragment>
       )
@@ -42,15 +42,15 @@ export default function BlogPost({ data }) {
 
   return <Layout title={title} description={description.description} imgUrl={heroImage.fluid.src} page={true}>
     <div id="content" className="container article">
-      <div id="article-header" class="mt-4">
+      <div id="article-header" className="mt-4">
         <Img fluid={heroImage.fluid} alt={title} className="w-100 rounded-lg" />
         <div className="text-center mt-4 mb-4">
-          <h1 class="mb-1">{title}</h1>
+          <h1 className="mb-1">{title}</h1>
           <small>by {author.name} | <strong>Last Updated:</strong> {parsedDate}</small>
         </div>
         <hr />
       </div>
-      <div id="article-body" class="mt-4">
+      <div id="article-body" className="mt-4">
         <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
       </div>
       {renderSimilarArticles()}

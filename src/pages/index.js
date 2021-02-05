@@ -12,19 +12,25 @@ export default function IndexPage({ data }) {
     const nodes = data.allContentfulBlogPost.nodes;
     return nodes.map(node => {
       const { id, title, heroImage, slug, description } = node;
-      return <div key={id} className="col-sm-4 p-4">
-        <div className="card border-0">
-          <Link to={slug}>
-            <Img fluid={heroImage.fluid} alt={title} className="card-img-top rounded-lg" />
-          </Link>
+      return (
+        <div key={id} className="col-sm-4 p-4">
+          <div className="card border-0">
+            <Link to={slug}>
+              <Img
+                fluid={heroImage.fluid}
+                alt={title}
+                className="card-img-top rounded-lg"
+              />
+            </Link>
             <div className="card-body p-0">
-              <h4 className="card-title mb-2 mt-2">{title}</h4>
-              <div className="card-text">
-                {description.description}
-              </div>
+              <h3 className="card-title mb-2 mt-2">
+                <Link to={slug}>{title}</Link>
+              </h3>
+              <div className="card-text">{description.description}</div>
             </div>
+          </div>
         </div>
-      </div>
+      )
     });
   }
 
@@ -59,7 +65,7 @@ export default function IndexPage({ data }) {
   return <Layout
     title={title}
     description={description}>
-    <div id="hero" className="hero row text-light p-4 ml-0 mr-0">
+    <div id="hero" className="hero row text-light p-4 mx-0">
       <div className="container row mx-auto align-items-center">
         <div className="col-sm-9">
           <h1>Hi, my name is Edgar.</h1>
