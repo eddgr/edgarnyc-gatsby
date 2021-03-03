@@ -84,7 +84,7 @@ export default function IndexPage({ data }) {
           </div>
           <div className="text-center">
             <OutboundLinkGA
-              href={'https://bit.ly/edgar-resume'}
+              href={'/resume'}
               eventLabel="View Resume"
               ariaLabel="View Resume"
             >

@@ -11,8 +11,10 @@ Personal website built with:
 - [Medium](https://medium.com/@eddgr)
 - [Twitter](https://twitter.com/eddgr)
 
-# TODO
-
-- [ ] Display blog list in descending order by last updated
-- [ ] Add og:image for project posts
-- [ ] Rename blog images to be more SEO friendly
+# .env
+```
+GATSBY_CONTENTFUL_SPACE_ID=
+GATSBY_CONTENTFUL_ACCESS_TOKEN=
+GATSBY_GA_TRACKING_ID=
+GATSBY_RESUME=
+```
