@@ -1,5 +1,9 @@
+import { useEffect } from 'react'
+
 const Resume = () => {
-  window.location.href = process.env.GATSBY_RESUME
+  useEffect(() => {
+    window.location.href = process.env.GATSBY_RESUME
+  }, [])
   return null
 }
 
