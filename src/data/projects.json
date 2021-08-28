@@ -23,7 +23,8 @@
     "url": {
       "frontend": "https://github.com/eddgr/fooder-frontend",
       "backend": "https://github.com/eddgr/fooder-backend",
-      "demo": "https://fooder-app-frontend.herokuapp.com/"
+      "redirect": "https://fooder-app-frontend.herokuapp.com/",
+      "demo": "/p/fooder"
     },
     "mobile": true
   },
@@ -54,7 +55,8 @@
     "url": {
       "frontend": "https://github.com/eddgr/zombie-diner-front-end",
       "backend": "https://github.com/eddgr/zombie-diner-backend",
-      "demo": "https://zombie-diner.herokuapp.com/"
+      "redirect": "https://zombie-diner.herokuapp.com/",
+      "demo": "/p/zombie-diner"
     },
     "mobile": true
   },
@@ -81,7 +83,8 @@
     "url": {
       "frontend": "https://github.com/eddgr/rps-hero",
       "backend": "https://github.com/eddgr/rps-hero-backend",
-      "demo": "https://eddgr.github.io/rps-hero"
+      "redirect": "https://eddgr.github.io/rps-hero",
+      "demo": "/p/rps-hero"
     },
     "mobile": false
   },
@@ -107,7 +110,8 @@
     "url": {
       "frontend": "https://github.com/eddgr/not-instagram-app",
       "backend": "https://github.com/eddgr/not-instagram-app",
-      "demo": "https://not-instagram-app.herokuapp.com/"
+      "redirect": "https://not-instagram-app.herokuapp.com/",
+      "demo": "/p/not-instagram"
     },
     "mobile": true
   }

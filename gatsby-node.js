@@ -16,6 +16,16 @@ exports.createPages = async function ({ actions, graphql }) {
       allProjectsJson {
         nodes {
           slug
+          url {
+            demo
+            redirect
+          }
+        }
+      }
+      allRedirectsJson {
+        nodes {
+          path
+          redirect
         }
       }
     }
@@ -40,6 +50,23 @@ exports.createPages = async function ({ actions, graphql }) {
       context: {
         slug: project.slug,
       },
+    })
+
+    // create redirect to project demo
+    actions.createRedirect({
+      fromPath: project.url.demo,
+      toPath: project.url.redirect,
+      redirectInBrowser: true,
+      isPermanent: true,
+    })
+  })
+
+  data.allRedirectsJson.nodes.forEach(url => {
+    actions.createRedirect({
+      fromPath: url.path,
+      toPath: url.redirect,
+      redirectInBrowser: true,
+      isPermanent: true,
     })
   })
 }
