@@ -56,7 +56,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createRedirect({
       fromPath: project.url.demo,
       toPath: project.url.redirect,
-      redirectInBrowser: true,
+      // redirectInBrowser: true,
       isPermanent: true,
     })
   })
@@ -65,7 +65,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createRedirect({
       fromPath: url.path,
       toPath: url.redirect,
-      redirectInBrowser: true,
+      // redirectInBrowser: true,
       isPermanent: true,
     })
   })
