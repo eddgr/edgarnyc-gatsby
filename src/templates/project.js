@@ -13,7 +13,7 @@ export default function Project({ data }) {
       return <div className="col-sm-6 text-center mb-4"
         key={feature}>
         <Img fluid={getImgFluid(data, screenshots.features[idx])} alt={name} />
-        <p class="feature-font">{feature}</p>
+        <p className="feature-font">{feature}</p>
       </div>
     })
   }
