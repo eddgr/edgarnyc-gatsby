@@ -6,9 +6,7 @@ import SEO from "./seo";
 import { homeIcon } from "../utils";
 import { renderSocial } from "../utils/social";
 
-export default function Layout(props) {
-  const { title, description, page, imgUrl } = props;
-
+export function NavBar() {
   const [currentScroll, setCurrentScroll] = useState(window.scrollY)
   const [display, setDisplay] = useState('none')
 
@@ -22,7 +20,7 @@ export default function Layout(props) {
     setCurrentScroll(window.scrollY)
   }, [currentScroll])
 
-  const NavBar = styled.div`
+  const NavBarDiv = styled.div`
     display: ${display};
     align-items: center;
     justify-content: space-between;
@@ -45,27 +43,28 @@ export default function Layout(props) {
       }
     }
   `
-  const Nav = () => {
-    return <NavBar>
-      <div id="profile">
-        Profile photo
-      </div>
-      <div id="menu">
-        <ul>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Blog</li>
-        </ul>
-      </div>
-      </NavBar>
-  }
-
   useEffect(() => {
     window.removeEventListener('scroll', handleNavBar)
     window.addEventListener('scroll', handleNavBar)
     return () => window.removeEventListener('scroll', handleNavBar)
   }, [handleNavBar])
 
+  return <NavBarDiv>
+    <div id="profile">
+      Profile photo
+    </div>
+    <div id="menu">
+      <ul>
+        <li>About</li>
+        <li>Projects</li>
+        <li>Blog</li>
+      </ul>
+    </div>
+  </NavBarDiv>
+}
+
+export default function Layout(props) {
+  const { title, description, page, imgUrl } = props;
   return <>
     <SEO
       title={title}
@@ -73,7 +72,7 @@ export default function Layout(props) {
       imgUrl={imgUrl}
     />
 
-    {Nav()}
+    <NavBar />
 
     {
       page &&
